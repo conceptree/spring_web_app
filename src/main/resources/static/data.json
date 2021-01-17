@@ -1,0 +1,35 @@
+{
+  "/items": {
+    "get": {
+      "data": [
+        {"item_id":1,"typeName": "Computer", "description": "Item Description..."},
+        {"item_id":2,"typeName": "Tablet", "description": "Item Description..."},
+        {"item_id":3,"typeName": "Iphone", "description": "Item Description..."},
+        {"item_id":4,"typeName": "Xioami Phone", "description": "Item Description..."},
+        {"item_id":5,"typeName": "Cannon Printer", "description": "Item Description..."}
+      ]
+    }
+  },
+  "/deposits": {
+    "get": {
+      "data": [
+        {"deposit_id":1,"item_id": 1, "quantity": 10},
+        {"deposit_id":2,"item_id": 3, "quantity": 6},
+        {"deposit_id":3,"item_id": 2, "quantity": 20},
+        {"deposit_id":4,"item_id": 5, "quantity": 15},
+        {"deposit_id":5,"item_id": 4, "quantity": 100}
+      ]
+    }
+  },
+  "/deliveries": {
+    "get": {
+      "data": [
+        {"delivery_id":1,"delivery_address":"Address string...","item_id": 1, "quantity": 10},
+        {"delivery_id":2,"delivery_address":"Address string...","item_id": 3, "quantity": 6},
+        {"delivery_id":3,"delivery_address":"Address string...","item_id": 2, "quantity": 20},
+        {"delivery_id":4,"delivery_address":"Address string...","item_id": 5, "quantity": 15},
+        {"delivery_id":5,"delivery_address":"Address string...","item_id": 4, "quantity": 100}
+      ]
+    }
+  }
+}

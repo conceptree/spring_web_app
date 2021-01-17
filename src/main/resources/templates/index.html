@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Warehouse Web-Page</title>
+    <link type="text/css" href="main.css">
+    <script type="javascript" src="main.js"></script>
+</head>
+<body>
+<header>
+    <h1>Warehouse API</h1>
+</header>
+<section>
+    <h1>Items</h1>
+    <table id="itemsTable">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+        </thead>
+        <tbody id="itemsBody">
+
+        </tbody>
+    </table>
+</section>
+<section>
+    <h1>Deposits</h1>
+    <table id="depoTable">
+        <thead>
+        <tr>
+            <th>Item Id</th>
+            <th>Quantity</th>
+        </tr>
+        </thead>
+        <tbody id="depoBody">
+
+        </tbody>
+    </table>
+</section>
+<section>
+    <h1>Deliveries</h1>
+    <table id="delivTable">
+        <thead>
+        <tr>
+            <th>Item Name</th>
+            <th>Address</th>
+            <th>Quantity</th>
+        </tr>
+        </thead>
+        <tbody id="delivBody">
+            <tr>
+
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+<script>
+
+    fetch("http://localhost:8080/items").then(response => response.json())
+    .then((resp) =>{
+        resp.data.forEach(item => {
+                document.querySelector("#itemsBody").innerHTML += `<tr>
+                  <td>${item.typeName}</td>
+                  <td>${item.description}</td>
+                </tr>`;
+            });
+    }).catch((err) => console.log(err));
+
+    fetch("http://localhost:8080/deposits").then(response => response.json())
+    .then((resp) =>{
+        resp.data.forEach(depo => {
+            document.querySelector("#depoBody").innerHTML += `<tr>
+                  <td>${depo.item_id}</td>
+                  <td>${depo.quantity}</td>
+                </tr>`;
+        });
+    }).catch((err) => console.log(err));
+
+    fetch("http://localhost:8080/deliveries").then(response => response.json())
+    .then((resp) =>{
+        resp.data.forEach(deliv => {
+            document.querySelector("#delivBody").innerHTML += `<tr>
+                  <td>${deliv.item_id}</td>
+                  <td>${deliv.delivery_address}</td>
+                  <td>${deliv.quantity}</td>
+                </tr>`;
+        });
+    }).catch((err) => console.log(err));
+
+</script>
+</body>
+</html>
