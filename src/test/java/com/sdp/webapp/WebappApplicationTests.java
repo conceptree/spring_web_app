@@ -9,12 +9,4 @@ import org.springframework.stereotype.Controller;
 @SpringBootTest
 class WebappApplicationTests {
 
-    @Autowired
-    private WebController controller;
-
-    @Test
-    void contextLoads() {
-        Assertions.assertThat(controller).isNotNull();
-    }
-
 }

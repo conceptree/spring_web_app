@@ -56,9 +56,11 @@
     </table>
 </section>
 
-<script>
+<script crossorigin="true" async defer>
 
-    fetch("http://localhost:8080/items").then(response => response.json())
+    fetch("http://localhost:8080/items").then((response) => {
+        return response.json();
+    })
     .then((resp) =>{
         resp.data.forEach(item => {
                 document.querySelector("#itemsBody").innerHTML += `<tr>
@@ -68,7 +70,9 @@
             });
     }).catch((err) => console.log(err));
 
-    fetch("http://localhost:8080/deposits").then(response => response.json())
+    fetch("http://localhost:8080/deposits").then((response) => {
+        return response.json();
+    })
     .then((resp) =>{
         resp.data.forEach(depo => {
             document.querySelector("#depoBody").innerHTML += `<tr>
@@ -78,7 +82,9 @@
         });
     }).catch((err) => console.log(err));
 
-    fetch("http://localhost:8080/deliveries").then(response => response.json())
+    fetch("http://localhost:8080/deliveries").then((response) => {
+        return response.json();
+    })
     .then((resp) =>{
         resp.data.forEach(deliv => {
             document.querySelector("#delivBody").innerHTML += `<tr>
